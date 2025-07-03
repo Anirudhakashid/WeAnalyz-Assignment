@@ -1,6 +1,23 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function SignIn() {
+  const navigate = useNavigate();
+  const [Username, setUsername] = useState("user");
+  const [Password, setPassword] = useState("user");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (Username === "user" && Password === "user") {
+      navigate("/dashboard");
+    } else {
+      alert("Invalid username or password");
+      setUsername("");
+      setPassword("");
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#55D6C2]">
       <div className="bg-[#A4E2D8] w-[500px] p-10 rounded-md shadow-md">
@@ -9,15 +26,21 @@ function SignIn() {
             Helpdesk System
           </h2>
 
-          <form className="flex flex-col gap-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <input
               type="text"
               placeholder="Username"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
               className="px-4  py-2 border border-gray-300 bg-white rounded"
             />
             <input
               type="password"
               placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
               className="px-4 py-2 border border-gray-300 bg-white rounded"
             />
             <button
@@ -29,10 +52,10 @@ function SignIn() {
           </form>
 
           <div className="flex justify-between mt-4 text-sm">
-            <a href="#" className="text-red-500 hover:underline">
+            <a href="/forget-password" className="text-red-500 hover:underline">
               Forgot password
             </a>
-            <a href="#" className="text-black hover:underline">
+            <a href="/signup" className="text-black hover:underline">
               Sign Up
             </a>
           </div>
