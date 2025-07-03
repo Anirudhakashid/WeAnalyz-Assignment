@@ -1,15 +1,30 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignIn from "./Pages/SignIn";
+import SignUp from "./Pages/SignUp";
+import ForgetPass from "./Pages/ForgetPass";
+import Layout from "./layout/Layout";
+import Myticket from "./Pages/MyTicket";
+import NewTicket from "./Pages/NewTicket";
+import Dashboard from "./Pages/Dashboard";
+import UserProfile from "./Pages/UserProfile";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <ForgetPass />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/forget-password" element={<ForgetPass />} />
+
+        <Route path="/" element={<Layout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="myTickets" element={<Myticket />} />
+          <Route path="newTicket" element={<NewTicket />} />
+          <Route path="profile" element={<UserProfile />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
