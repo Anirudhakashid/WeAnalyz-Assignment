@@ -4,7 +4,7 @@ import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
 import ForgetPass from "./Pages/ForgetPass";
 import Layout from "./layout/Layout";
-import Myticket from "./Pages/MyTicket";
+import MyTicket from "./Pages/MyTicket";
 import NewTicket from "./Pages/NewTicket";
 import Dashboard from "./Pages/Dashboard";
 import UserProfile from "./Pages/UserProfile";
@@ -19,7 +19,7 @@ function App() {
 
         <Route path="/" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="myTickets" element={<Myticket />} />
+          <Route path="myTickets" element={<MyTicket />} />
           <Route path="newTicket" element={<NewTicket />} />
           <Route path="profile" element={<UserProfile />} />
         </Route>
