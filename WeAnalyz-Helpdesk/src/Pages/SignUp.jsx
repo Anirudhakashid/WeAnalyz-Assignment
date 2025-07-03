@@ -36,10 +36,13 @@ function SignUp() {
             </form>
 
             <div className="flex justify-between mt-6 text-sm">
-              <a href="#" className="text-red-500 hover:underline">
+              <a
+                href="/forget-password"
+                className="text-red-500 hover:underline"
+              >
                 Forgot password
               </a>
-              <a href="#" className="text-black hover:underline">
+              <a href="/" className="text-black hover:underline">
                 Sign In
               </a>
             </div>
